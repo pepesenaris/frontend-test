@@ -26,12 +26,18 @@ var EventItem = React.createClass({
     return (
       <div>
         <Button bsStyle='primary'>View</Button>
-        <TwitterButton className="btn btn-info pull-right" url="" message={this.props.name}>
+        <TwitterButton className="btn btn-info pull-right" url="" message={this.tweetMessage()}>
           Tweet
         </TwitterButton>
       </div>
       );
+  },
+
+  tweetMessage: function(){
+    var chunks = ["Iré al ", this.props.name, " @ ", this.props.start_date, this.props.image]
+    return  msg = chunks.join(" ");
   }
+
 });
 
 module.exports = EventItem;
