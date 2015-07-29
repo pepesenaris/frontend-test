@@ -3,6 +3,7 @@ var Reflux = require('reflux');
 var Row = require('react-bootstrap').Row;
 var Col = require('react-bootstrap').Col;
 var EventStore = require('../stores/event_store');
+var EventItem = require('./event_item');
 
 
 var EventList = React.createClass({
@@ -11,23 +12,20 @@ var EventList = React.createClass({
   render: function(){
   	if (this.state.list) {
   		return (
-  			<ul>
+  			<div>
 		      {
 		        this.state.list.map( function(event){
 		          return (
-		            <li key={event.id}>
-		              {event.id}
-		              {event.title}
-		            </li>
+                  <EventItem event={event}/>
 		            );
 		        })
 		      }
-		      </ul>
+		      </div>
   			);
   	}
     else
     {
-      return (<div> No events found <div/>);
+      return (<div> No events found </div>);
     }
   }
 
