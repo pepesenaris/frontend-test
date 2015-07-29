@@ -5,6 +5,8 @@ var Button = require('react-bootstrap').Button;
 var Panel = require('react-bootstrap').Panel;
 var Label = require('react-bootstrap').Label;
 var EventList = require('./event_list');
+var TwitterButton = require('react-social').TwitterButton;
+
 
 var EventItem = React.createClass({
 
@@ -21,10 +23,12 @@ var EventItem = React.createClass({
   },
 
   footer: function(){
-    return ( 
+    return (
       <div>
         <Button bsStyle='primary'>View</Button>
-        <Button bsStyle='info' className="pull-right">Tweet</Button>
+        <TwitterButton className="btn btn-info pull-right" url="" message={this.props.name}>
+          Tweet
+        </TwitterButton>
       </div>
       );
   }
