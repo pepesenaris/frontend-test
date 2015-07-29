@@ -5,10 +5,11 @@ var DefaultRoute = Router.DefaultRoute;
 
 var Layout = require('./components/layout');
 var Home = require('./components/home');
+var EventIndex = require('./components/event_index');
 
 var routes = (
 	<Route name="layout" path="/" handler={Layout}>
-		<DefaultRoute handler={Home} />
+		<DefaultRoute handler={EventIndex} />
 	</Route>
 );
 
