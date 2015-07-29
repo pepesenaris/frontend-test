@@ -21,7 +21,12 @@ var EventItem = React.createClass({
   },
 
   footer: function(){
-    return ( <Button bsStyle='primary'>View</Button>);
+    return ( 
+      <div>
+        <Button bsStyle='primary'>View</Button>
+        <Button bsStyle='info' className="pull-right">Tweet</Button>
+      </div>
+      );
   }
 });
 
