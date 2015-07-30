@@ -1,17 +1,17 @@
 var Reflux = require('reflux');
 var $ = require('jquery');
-var EventActions = require('../actions/event_actions');
+var HighlightActions = require('../actions/highlight_actions');
 
-var EventStore = Reflux.createStore({
-  listenables: [EventActions],
+var HighlightStore = Reflux.createStore({
+  listenables: [HighlightActions],
   events: [],
-  baseUrl: 'http://localhost:3000/events',
+  baseUrl: 'http://localhost:3000/events/featured',
 
   init: function() {
-    this.fetchEvents();
+    this.fetch();
   },
 
-  fetchEvents: function() {
+  fetch: function() {
     $.ajax({
       url: this.baseUrl,
       dataType: 'json',
@@ -19,7 +19,7 @@ var EventStore = Reflux.createStore({
       cache: false,
       context: this,
       success: function(data) {
-          console.log("event_store success", data.events);
+          console.log("highlight succes: ", data.events);
           this.events = data.events;
           this.trigger(this.events);
       }
@@ -27,4 +27,4 @@ var EventStore = Reflux.createStore({
   }
 });
 
-module.exports = EventStore;
+module.exports = HighlightStore;
