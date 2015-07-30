@@ -14,18 +14,22 @@ var HighlightList = React.createClass({
     };
   },
 
+  items: function(){
+    return (
+      this.state.highlights.map( function(event){
+        return (
+          <HighlightItem key={event.id} start_date={event.dates[0]} name={event.title} event={event} image={event.eventImage} location={event.location} short_desc={event.description.substring(0, 15)} ></HighlightItem>
+          );
+        })
+      );
+  },
+
   render: function(){
   	if (this.state.highlights) {
   		return (
   			<div>
-		      {
-		        this.state.highlights.map( function(event){
-		          return (
-                <HighlightItem key={event.id} start_date={event.dates[0]} name={event.title} event={event} image={event.eventImage} location={event.location} ></HighlightItem>
-		            );
-		        })
-		      }
-		      </div>
+		      { this.items() }
+		    </div>
   			);
   	}
     else
