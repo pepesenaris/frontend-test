@@ -4,7 +4,6 @@ var Col = require('react-bootstrap').Col;
 var Button = require('react-bootstrap').Button;
 var Panel = require('react-bootstrap').Panel;
 var Label = require('react-bootstrap').Label;
-var EventList = require('./event_list');
 var TwitterButton = require('react-social').TwitterButton;
 
 
