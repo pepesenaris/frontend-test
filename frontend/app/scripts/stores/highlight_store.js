@@ -2,13 +2,22 @@ var Reflux = require('reflux');
 var $ = require('jquery');
 var HighlightActions = require('../actions/highlight_actions');
 
+highlights_init = false;
+
 var HighlightStore = Reflux.createStore({
   listenables: [HighlightActions],
   events: [],
   baseUrl: 'http://localhost:3000/events/featured',
 
   init: function() {
+    if (highlights_init)
+      return;
+    highlights_init = true;
     this.fetch();
+  },
+
+  getEvents: function(){
+    return this.events;
   },
 
   fetch: function() {
@@ -21,7 +30,7 @@ var HighlightStore = Reflux.createStore({
       success: function(data) {
           console.log("highlight succes: ", data.events);
           this.events = data.events;
-          this.trigger(this.events);
+          this.trigger(this.getEvents());
       }
     });
   }

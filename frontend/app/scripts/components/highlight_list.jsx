@@ -10,7 +10,7 @@ var HighlightList = React.createClass({
 
   getInitialState: function(){
     return {
-      highlights: []
+      highlights: HighlightStore.getEvents()
     };
   },
 
