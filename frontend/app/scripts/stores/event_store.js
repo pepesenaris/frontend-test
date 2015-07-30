@@ -24,6 +24,11 @@ var EventStore = Reflux.createStore({
     return result;
   },
 
+  getEvent: function(id){
+    //TODO: Fetch the id from the api if not stored yet
+    return this.events[id];
+  },
+
   fetchEvents: function() {
     $.ajax({
       url: this.baseUrl,
