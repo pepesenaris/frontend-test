@@ -16,11 +16,13 @@ var EventList = React.createClass({
 		      {
 		        this.state.list.map( function(event){
 		          return (
-                  <EventItem key={event.id} start_datetime={event.dates[0]} name={event.title} location={event.location} image={event.eventImage} description={event.description}/>
+                <Row key={event.id}>
+                    <EventItem key={'event-' + event.id} start_datetime={event.dates[0]} name={event.title} location={event.location} image={event.eventImage} description={event.description}/>
+                </Row>
 		            );
 		        })
 		      }
-		      </div>
+		    </div>
   			);
   	}
     else
