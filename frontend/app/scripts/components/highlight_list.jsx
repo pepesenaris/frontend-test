@@ -25,17 +25,14 @@ var HighlightList = React.createClass({
   },
 
   render: function(){
-  	if (this.state.highlights) {
-  		return (
-  			<div>
-		      { this.items() }
-		    </div>
-  			);
-  	}
-    else
-    {
-      return (<div> No events found </div>);
-    }
+    return (
+      <div>
+        <h3>Highlights</h3>
+        <div>
+          { this.state.highlights.length > 0 ?  this.items(): "No events found" }
+        </div>
+      </div>
+      );
   }
 
 });
