@@ -18,7 +18,14 @@ var HighlightList = React.createClass({
     return (
       this.state.highlights.map( function(event){
         return (
-          <HighlightItem key={event.id} start_date={event.dates[0]} name={event.title} event={event} image={event.eventImage} location={event.location} short_desc={event.description.substring(0, 15)} ></HighlightItem>
+          <HighlightItem
+            key={event.id}
+            name={event.title}
+            image={event.eventImage}
+            location={event.location}
+            start_date={event.dates[0]}
+            short_desc={event.description.substring(0, 15)} >
+          </HighlightItem>
           );
         })
       );
