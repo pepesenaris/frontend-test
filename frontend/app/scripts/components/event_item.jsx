@@ -46,7 +46,7 @@ var EventItem = React.createClass({
                 <div>
                     <div className="col-xs-12 col-sm-7 event-resume">
                       <div className="blurb">
-                        {this.props.description.substring(0, 150)}
+                        {this.props.description.substring(0, 150)}...
                       </div>
                     </div>
                     <div className="col-xs-12 col-sm-5 event-list-add">
@@ -54,10 +54,6 @@ var EventItem = React.createClass({
                           <div className="address address-border">
                             <h4>{this.props.name}</h4>
                           </div>
-                          <TwitterButton className="btn btn-info twitter-btn" url="" message={this.tweetMessage()}>
-                            Tweet
-                          </TwitterButton>
-                        <div className="clear-all"></div>
                       </div>
                     </div>
                 </div>
@@ -66,6 +62,9 @@ var EventItem = React.createClass({
             <div className="col-xs-12 col-sm-12">
               <div className="buy-info event-list-date">
                 <a href="#" className="btn btn-white-blue">Read More</a>
+                <TwitterButton className="btn btn-info twitter-btn" url="" message={this.tweetMessage()}>
+                  Tweet
+                </TwitterButton>
               </div>
               <div className="clear-all"></div>
             </div>
