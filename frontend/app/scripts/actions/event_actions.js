@@ -1,7 +1,7 @@
 var Reflux = require('reflux');
 
 var EventActions = Reflux.createActions([
-  'fetchEvents'
+  'createEvent'
 ]);
 
 module.exports = EventActions;

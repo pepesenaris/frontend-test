@@ -9,7 +9,14 @@ var EventItem = require('./event_item');
 var EventList = React.createClass({
   mixins: [Reflux.connect(EventStore, 'list')],
 
+  getInitialState: function(){
+    return{
+      list: EventStore.getEvents()
+    };
+  },
+
   render: function(){
+    console.log("in event list render -> getEvents:", EventStore.getEvents());
   	if (this.state.list) {
   		return (
   			<div>
