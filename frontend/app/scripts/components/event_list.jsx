@@ -16,7 +16,7 @@ var EventList = React.createClass({
 		      {
 		        this.state.list.map( function(event){
 		          return (
-                  <EventItem key={event.id} start_date={event.dates[0]} name={event.title} event={event} image={event.eventImage}/>
+                  <EventItem key={event.id} start_datetime={event.dates[0]} name={event.title} event={event} image={event.eventImage}/>
 		            );
 		        })
 		      }
