@@ -18,7 +18,7 @@ var EventsIndex = React.createClass({
 
         <Col sm={4}>
           <HighlightList> </HighlightList>
-            <Router.Link to="new_event" className="btn btn-primary">
+            <Router.Link to="new" className="btn btn-primary">
               Add event
             </Router.Link>
 
