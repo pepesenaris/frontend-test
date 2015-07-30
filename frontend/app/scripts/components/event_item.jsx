@@ -5,6 +5,8 @@ var Button = require('react-bootstrap').Button;
 var Panel = require('react-bootstrap').Panel;
 var Label = require('react-bootstrap').Label;
 var TwitterButton = require('react-social').TwitterButton;
+var Router = require('react-router');
+var Link = Router.Link;
 
 
 var EventItem = React.createClass({
@@ -59,7 +61,7 @@ var EventItem = React.createClass({
             </div>
             <div className="col-xs-12 col-sm-12">
               <div className="buy-info event-list-date">
-                <a href="#" className="btn btn-white-blue">Read More</a>
+                <Link to="show" className="btn btn-white-blue" params={{ id: this.props.id }}>Read More</Link>
                 <TwitterButton className="btn btn-info twitter-btn" url="" message={this.tweetMessage()}>
                   Tweet
                 </TwitterButton>
