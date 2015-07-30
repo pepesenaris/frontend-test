@@ -51,9 +51,7 @@ var EventItem = React.createClass({
                     </div>
                     <div className="col-xs-12 col-sm-5 event-list-add">
                       <div className="event-location">
-                          <div className="address address-border">
-                            <h4>{this.props.name}</h4>
-                          </div>
+                        <h4>{this.props.name}</h4>
                       </div>
                     </div>
                 </div>
