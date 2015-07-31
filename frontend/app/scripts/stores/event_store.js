@@ -30,10 +30,9 @@ var EventStore = Reflux.createStore({
   },
 
   createEvent: function(data){
-    console.log('In event store, this is data: ', data);
-
     dates_info = [ data.date_start, data.date_end];
 
+    //TODO: Use moment.js to parse dates
     var event_data = {
       title: data.title,
       eventImage: data.url,
@@ -46,12 +45,13 @@ var EventStore = Reflux.createStore({
 
     this.postEvent(event_data)
     .done(function(res){
-      console.log("response: ", res)
+      var ev = res.event;
+      this.events[ev.id] = ev;
+      this.trigger(this.getEvents());
     })
     .fail(function(res){
-      console.log("response: ", res)
+      console.log("failed response: ", res);
     });
-    //alert('In createEvent @ store, this is event: '  + JSON.stringify(event_data));
   },
 
   postEvent: function(event_data){
@@ -59,7 +59,8 @@ var EventStore = Reflux.createStore({
       url: this.baseUrl,
       type: 'POST',
       dataType: 'json',
-      data: event_data,
+      data: JSON.stringify({event: event_data}),
+      headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
       crossDomain: true,
       cache: false,
       context: this
