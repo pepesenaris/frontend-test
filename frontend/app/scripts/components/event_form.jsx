@@ -102,7 +102,7 @@ var EventForm = React.createClass({
           />
         </Col>
         </Row>
-        <Row layout='vertical'>
+        <Row layout='vertical' style={{marginBottom: 30+'px'}}>
           <input className="btn event-list-btn" onClick={this.resetForm} type="reset" defaultValue="Reset" />
           {' '}
           <input className="btn btn-white-blue" formNoValidate={true} type="submit" defaultValue="Create" />
