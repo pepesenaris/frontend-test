@@ -798,16 +798,14 @@ span.register-step span {
 .event-content .blurb {
 	color: #3f4450;
 	font-weight: 600;
-	margin-bottom: 35px;
+	margin-bottom: 10px;
 }
 .event-location { 
 	max-width: 300px; 
-	margin-bottom: 20px;
 }
 .event-location .address {
 	max-width: 180px;
 	color: #58595b;
-	border-right: 1px solid #58595b;
 	float: left;
 }
 .map-link {
