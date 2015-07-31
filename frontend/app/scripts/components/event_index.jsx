@@ -10,13 +10,14 @@ var Router = require('react-router');
 var EventsIndex = React.createClass({
 
   render: function() {
+    s = {margin: 15+'px'};
     return (
-      <Row>
-        <Col sm={8}>
+      <Row style={s}>
+        <Col className="nopadding" sm={8}>
           <EventList> </EventList>
         </Col>
 
-        <Col sm={4}>
+        <Col className="nopadding" sm={4}>
           <HighlightList> </HighlightList>
             <Router.Link to="new" className="btn btn-primary">
               Add event
