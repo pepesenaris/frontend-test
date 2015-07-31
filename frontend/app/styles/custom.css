@@ -879,7 +879,7 @@ ul.socials-event li {
 	list-style: none;
 }
 ul.socials-event li a.social-event {
-	background: url("/assets/images/event_assets/event_share_sprite.png") no-repeat;
+	background: url("/event_share_sprite.png") no-repeat;
 	height: 32px;
 	width: 32px;
 	display: block;
