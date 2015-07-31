@@ -23,7 +23,7 @@ var EventList = React.createClass({
 		      {
 		        this.state.list.map( function(event){
 		          return (
-                <Row key={event.id}>
+                <Row className="row row-content" key={event.id}>
                     <EventItem id={event.id} key={'event-' + event.id} start_datetime={event.dates[0]} name={event.title} location={event.location} image={event.eventImage} description={event.description}/>
                 </Row>
 		            );
