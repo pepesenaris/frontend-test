@@ -25,6 +25,7 @@ var EventShow = React.createClass({
     });
 
 		return (
+      <div className="container">
       <div className="event-container well clearfix">
           <div className="col-sm-5 col-xs-12 nopadding event-image">
               <img src={this.state.url} alt=""></img>
@@ -52,6 +53,7 @@ var EventShow = React.createClass({
           <p className="general-text">
               {this.state.description}
           </p>
+      </div>
       </div>
       );
 	}
