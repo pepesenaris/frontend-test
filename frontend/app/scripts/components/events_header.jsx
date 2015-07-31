@@ -1,11 +1,13 @@
 var React = require('react');
-
+var Router = require('react-router');
 var EventsHeader = React.createClass({
 
   render: function() {
     return (
       <header>
-        <h1>Events</h1>
+      	<Router.Link to="index">
+          <h1>Events</h1>
+        </Router.Link>
       </header>
     );
   }

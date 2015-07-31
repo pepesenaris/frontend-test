@@ -11,7 +11,7 @@ var EventShow = require('./components/event_show');
 
 var routes = (
 	<Route handler={Layout}>
-		<DefaultRoute handler={EventIndex}/>
+		<DefaultRoute name="index" handler={EventIndex}/>
     <Route name="new" path="event/new" handler={EventForm}/>
     <Route name="show" path="event/:id" handler={EventShow}/>
 	</Route>
