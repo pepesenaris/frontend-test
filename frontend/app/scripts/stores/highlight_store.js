@@ -1,6 +1,7 @@
 var Reflux = require('reflux');
 var $ = require('jquery');
 var HighlightActions = require('../actions/highlight_actions');
+var EventActions = require('../actions/event_actions');
 
 highlights_init = false;
 
@@ -14,6 +15,7 @@ var HighlightStore = Reflux.createStore({
       return;
     highlights_init = true;
     this.fetch();
+    this.listenTo(EventActions.createEvent, this.fetch);
   },
 
   getEvents: function(){
