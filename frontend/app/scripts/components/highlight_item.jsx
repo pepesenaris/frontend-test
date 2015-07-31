@@ -10,13 +10,19 @@ var HighlightItem = React.createClass({
 
   render: function() {
     return (
-      <Panel footer={this.props.location}>
-        {this.props.start_date}
-        <br/>
-        <Label bsSize="large">{this.props.name}</Label>
-        <br/>
-        {this.props.short_desc}
-      </Panel>
+      <div className="row row-content job-post-box">
+        <ul className="listing-content">
+          <li>
+            <label className="regular-text"><h4>{this.props.name}</h4></label>
+          </li>
+          <li>
+            <label className="register-list">{this.props.location}</label>
+          </li>
+          <li>
+            <label className="salary">{this.props.start_date}</label>
+          </li>
+        </ul>
+      </div>
     );
   }
 

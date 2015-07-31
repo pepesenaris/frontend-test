@@ -991,11 +991,10 @@ ul.navfooter li { display: block; }
 .listing-content{
 	list-style-type: none;
 	width: 100%;
-	margin: 10px;
 	height: auto;
 	display: inline-block;
 	margin-bottom: 10px;
-	padding-left: 0px;
+	padding-left: 10px;
 }
 
 .right-block{
