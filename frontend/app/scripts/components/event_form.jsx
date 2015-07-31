@@ -6,6 +6,7 @@ var Formsy = require('formsy-react');
 var FRC = require('formsy-react-components');
 var Input = FRC.Input;
 var Textarea = FRC.Textarea;
+var EventActions = require('../actions/event_actions');
 
 var sharedProps = {
   layout: 'vertical',
@@ -16,17 +17,36 @@ var sharedProps = {
 
 var EventForm = React.createClass({
 
+  getInitialState: function(){
+    return{
+      canSubmit: false
+    };
+  },
+
   submitForm: function(data){
     console.log(data);
+    EventActions.createEvent(data);
   },
 
   resetForm: function() {
     this.refs.form.reset();
   },
 
+  enableButton: function () {
+    this.setState({
+      canSubmit: true
+    });
+  },
+
+  disableButton: function () {
+    this.setState({
+      canSubmit: false
+    });
+  },
+
 	render: function(){
 		return (
-			 <Formsy.Form className='' onSubmit={this.submitForm} ref="form">
+			 <Formsy.Form className='' onSubmit={this.submitForm} onValid={this.enableButton} onInvalid={this.disableButton}  ref="form">
         <Grid className="container">
         <h2>New Event</h2>
         <hr/>
@@ -99,13 +119,14 @@ var EventForm = React.createClass({
               validationErrors={{
                   minLength: 'Please provide at least 10 characters.'
               }}
+              required
           />
         </Col>
         </Row>
         <Row layout='vertical' style={{marginBottom: 30+'px'}}>
           <input className="btn event-list-btn" onClick={this.resetForm} type="reset" defaultValue="Reset" />
           {' '}
-          <input className="btn btn-white-blue" formNoValidate={true} type="submit" defaultValue="Create" />
+          <input className="btn btn-white-blue" formNoValidate={true} type="submit" disabled={!this.state.canSubmit} defaultValue="Create" />
         </Row>
         </Grid>
 			 </Formsy.Form>
