@@ -60,9 +60,9 @@ var EventItem = React.createClass({
               </div>
             </div>
             <div className="col-xs-12 col-sm-12">
-              <div className="buy-info event-list-date">
+              <div className="buy-info event-list-date" style={{position: 'absolute'}}>
                 <Link to="show" className="btn btn-white-blue" params={{ id: this.props.id }}>Read More</Link>
-                <TwitterButton className="btn btn-default btn-blue-job twitter-btn" url="" message={this.tweetMessage()}>
+                <TwitterButton className="btn btn-default btn-blue-job twitter-btn" style={{position: 'relative', left: 50+'px'}}url="" message={this.tweetMessage()}>
                   Tweet
                 </TwitterButton>
               </div>
