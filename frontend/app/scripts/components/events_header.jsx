@@ -5,7 +5,7 @@ var EventsHeader = React.createClass({
   render: function() {
     return (
       <header>
-      	<Router.Link to="index">
+      	<Router.Link to="index" className="no-link-underline">
           <h1>Events</h1>
         </Router.Link>
       </header>

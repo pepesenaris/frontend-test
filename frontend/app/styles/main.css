@@ -4,6 +4,13 @@ body {
     color: #333;
 }
 
+.no-link-underline,
+.no-link-underline :hover,
+.no-link-underline :active
+{
+    text-decoration: none;
+}
+
 .twitter-btn {
     margin-left: 1px;
 }

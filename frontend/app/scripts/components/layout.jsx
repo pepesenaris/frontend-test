@@ -10,6 +10,7 @@ var Layout = React.createClass({
     return (
       <div className="App">
       	<EventsHeader/>
+      	<hr/>
         <RouteHandler />
       </div>
     );
