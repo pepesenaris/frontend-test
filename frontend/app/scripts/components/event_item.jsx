@@ -40,7 +40,6 @@ var EventItem = React.createClass({
                   <ul>
                       <li>{this.start_date()}</li>
                       <li>{this.start_time()}</li>
-                      <li>{this.props.location}</li>
                   </ul>
                   <span className="pull-left under-line">&nbsp;&nbsp;</span>
                 </div>
@@ -48,12 +47,13 @@ var EventItem = React.createClass({
                 <div>
                     <div className="col-xs-12 col-sm-7 event-resume">
                       <div className="blurb">
-                        {this.props.description.substring(0, 150)}...
+                        {this.props.name}
                       </div>
                     </div>
                     <div className="col-xs-12 col-sm-5 event-list-add">
                       <div className="event-location">
-                        <h4>{this.props.name}</h4>
+                        <div className="address address-border">{this.props.location}</div>
+                        <div className="clear-all"></div>
                       </div>
                     </div>
                 </div>
@@ -62,7 +62,7 @@ var EventItem = React.createClass({
             <div className="col-xs-12 col-sm-12">
               <div className="buy-info event-list-date">
                 <Link to="show" className="btn btn-white-blue" params={{ id: this.props.id }}>Read More</Link>
-                <TwitterButton className="btn btn-info twitter-btn" url="" message={this.tweetMessage()}>
+                <TwitterButton className="btn btn-default btn-blue-job twitter-btn" url="" message={this.tweetMessage()}>
                   Tweet
                 </TwitterButton>
               </div>
