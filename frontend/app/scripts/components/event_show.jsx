@@ -17,6 +17,13 @@ var EventShow = React.createClass({
   },
 
 	render: function(){
+    dates_info = this.state.dates.map(function(date){
+      return (<ul>
+                <li>{date.split(' ')[0]}</li>
+                <li>{date.split(' ')[1]}</li>
+              </ul>);
+    });
+
 		return (
       <div className="event-container well clearfix">
           <div className="col-sm-5 col-xs-12 nopadding event-image">
@@ -35,14 +42,7 @@ var EventShow = React.createClass({
                   </div>
                   <hr />
                   <div className="pull-left">
-                      <ul>
-                          <li>{this.state.dates[0].split(' ')[0]}</li>
-                          <li>{this.state.dates[0].split(' ')[1]}</li>
-                      </ul>
-                      <ul>
-                          <li>{this.state.dates[1].split(' ')[0]}</li>
-                          <li>{this.state.dates[1].split(' ')[1]}</li>
-                      </ul>
+                    { dates_info }
                   </div>
                   <div className="clear-all"></div>
               </div>
