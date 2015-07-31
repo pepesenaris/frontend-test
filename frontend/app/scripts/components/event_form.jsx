@@ -112,7 +112,7 @@ var EventForm = React.createClass({
               {...sharedProps}
               rows={3}
               cols={40}
-              name="desc"
+              name="description"
               label="Description"
               placeholder="Event description."
               validations="minLength:10"
