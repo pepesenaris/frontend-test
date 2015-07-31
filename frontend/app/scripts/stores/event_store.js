@@ -1,6 +1,8 @@
 var Reflux = require('reflux');
 var $ = require('jquery');
 var EventActions = require('../actions/event_actions');
+var moment = require('moment');
+
 
 init_called = false;
 
@@ -30,7 +32,7 @@ var EventStore = Reflux.createStore({
   },
 
   createEvent: function(data){
-    dates_info = [ data.date_start, data.date_end];
+    dates_info = [ moment(data.date_start,'YYYY-MM-DD'), moment(data.date_end,'YYYY-MM-DD') ];
 
     //TODO: Use moment.js to parse dates
     var event_data = {
@@ -39,7 +41,7 @@ var EventStore = Reflux.createStore({
       description: data.description,
       location: data.location,
       dates: dates_info.map(function(elem) {
-        return new Date(elem);
+        return elem.format('DD/MM/YYYY h:mm');
       })
     };
 
