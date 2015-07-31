@@ -31,18 +31,34 @@ var EventStore = Reflux.createStore({
     return this.events[id];
   },
 
-  createEvent: function(data){
-    dates_info = [ moment(data.date_start,'YYYY-MM-DD'), moment(data.date_end,'YYYY-MM-DD') ];
+  getDateRange: function(startDate, endDate, dateFormat) {
+      var dates = [],
+          end = moment(endDate),
+          diff = endDate.diff(startDate, 'days');
 
-    //TODO: Use moment.js to parse dates
+      if(!startDate.isValid() || !endDate.isValid() || diff <= 0) {
+          return;
+      }
+
+      for(var i = 0; i < diff; i++) {
+          dates.unshift(end.subtract(1,'d').format(dateFormat));
+      }
+
+      return dates;
+  },
+
+  createEvent: function(data){
+    dates_range = this.getDateRange(
+      moment(data.date_start,'YYYY-MM-DD'),
+      moment(data.date_end,'YYYY-MM-DD'),
+      'DD/MM/YYYY h:mm' );
+
     var event_data = {
       title: data.title,
       eventImage: data.url,
       description: data.description,
       location: data.location,
-      dates: dates_info.map(function(elem) {
-        return elem.format('DD/MM/YYYY h:mm');
-      })
+      dates: dates_range
     };
 
     this.postEvent(event_data)
