@@ -29,6 +29,43 @@ var EventStore = Reflux.createStore({
     return this.events[id];
   },
 
+  createEvent: function(data){
+    console.log('In event store, this is data: ', data);
+
+    dates_info = [ data.date_start, data.date_end];
+
+    var event_data = {
+      title: data.title,
+      eventImage: data.url,
+      description: data.description,
+      location: data.location,
+      dates: dates_info.map(function(elem) {
+        return new Date(elem);
+      })
+    };
+
+    this.postEvent(event_data)
+    .done(function(res){
+      console.log("response: ", res)
+    })
+    .fail(function(res){
+      console.log("response: ", res)
+    });
+    //alert('In createEvent @ store, this is event: '  + JSON.stringify(event_data));
+  },
+
+  postEvent: function(event_data){
+    return $.ajax({
+      url: this.baseUrl,
+      type: 'POST',
+      dataType: 'json',
+      data: event_data,
+      crossDomain: true,
+      cache: false,
+      context: this
+    });
+  },
+
   fetchEvents: function() {
     $.ajax({
       url: this.baseUrl,
