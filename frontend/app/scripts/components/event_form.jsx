@@ -29,6 +29,7 @@ var EventForm = React.createClass({
 			 <Formsy.Form className='' onSubmit={this.submitForm} ref="form">
         <Grid className="container">
         <h2>New Event</h2>
+        <hr/>
         <Row>
         <Col sm={6}>
         <fieldset>
@@ -50,6 +51,16 @@ var EventForm = React.createClass({
               label="Image URL"
               type="text"
               placeholder="Event URL."
+              required
+          />
+          <Input
+              {...sharedProps}
+              name="location"
+              id="location-text"
+              value=""
+              label="Location"
+              type="text"
+              placeholder="Event Location."
               required
           />
         </fieldset>
