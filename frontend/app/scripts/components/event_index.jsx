@@ -20,7 +20,7 @@ var EventsIndex = React.createClass({
         <Col className="nopadding" sm={4}>
           <HighlightList> </HighlightList>
             <br/>
-            <Router.Link to="new" className="btn btn-primary">
+            <Router.Link to="new" className="btn btn-white-blue">
               Add event
             </Router.Link>
 

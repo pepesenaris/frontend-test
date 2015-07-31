@@ -103,9 +103,9 @@ var EventForm = React.createClass({
         </Col>
         </Row>
         <Row layout='vertical'>
-          <input className="btn btn-default" onClick={this.resetForm} type="reset" defaultValue="Reset" />
+          <input className="btn event-list-btn" onClick={this.resetForm} type="reset" defaultValue="Reset" />
           {' '}
-          <input className="btn btn-primary" formNoValidate={true} type="submit" defaultValue="Create" />
+          <input className="btn btn-white-blue" formNoValidate={true} type="submit" defaultValue="Create" />
         </Row>
         </Grid>
 			 </Formsy.Form>
